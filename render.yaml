@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: fastapi-ingestor
+    env: python
+    plan: free
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: SP_USERNAME
+        sync: false
+      - key: SP_PASSWORD
+        sync: false
+      - key: SHAREPOINT_SITE
+        sync: false
+      - key: SP_FOLDER_URL
+        sync: false
+      - key: SQL_SERVER
+        sync: false
+      - key: SQL_DB
+        sync: false
